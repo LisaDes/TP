@@ -1,6 +1,7 @@
 package fr.unice.l3.formes;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Ellipse extends AFormeGeometrique {
 	public Ellipse(Point centre, int largeur, int hauteur) {
@@ -18,9 +19,9 @@ public class Ellipse extends AFormeGeometrique {
 	}
 
 	@Override
-	public void dessineToi(Graphics g) {
-		super.dessineToi(g);
-		getCentre().dessineToi(g);
+	public void paintComponent(Graphics2D g) {
+		super.paintComponent(g);
+		getCentre().paintComponent(g);
 		Point coin = getCoinSuperieurGauche() ;
 		g.drawOval(coin.getX(), coin.getY(), getLargeur(), getHauteur());
 	}

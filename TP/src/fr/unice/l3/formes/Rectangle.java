@@ -1,6 +1,7 @@
 package fr.unice.l3.formes;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Rectangle extends AFormeGeometrique {
 	public Rectangle(Point coin, int largeur, int hauteur) {
@@ -18,9 +19,9 @@ public class Rectangle extends AFormeGeometrique {
 	}
 
 	@Override
-	public void dessineToi(Graphics g) {
-		super.dessineToi(g);
-		getAncrage().dessineToi(g);
+	public void paintComponent(Graphics2D g) {
+		super.paintComponent(g);
+		getAncrage().paintComponent(g);
 		Point coin = getCoinSuperieurGauche() ;
 		g.drawRect(coin.getX(), coin.getY(), getLargeur(), getHauteur());
 		}

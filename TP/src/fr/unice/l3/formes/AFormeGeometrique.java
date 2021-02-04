@@ -9,11 +9,13 @@ abstract class AFormeGeometrique extends JComponent{
 	protected AlignementHorizontal horizontal = AlignementHorizontal.GAUCHE;
 	protected AlignementVertical vertical = AlignementVertical.HAUT;
 	protected int largeur, hauteur;
+	protected int demiEpaisseur;
 	
-	protected AFormeGeometrique(Point ancrage, int largeur, int hauteur) {
+	protected AFormeGeometrique(Point ancrage, int largeur, int hauteur, int demiEpaisseur) {
 		this.ancrage = new Point(ancrage);
 		this.largeur = largeur;
 		this.hauteur = hauteur;
+		this.demiEpaisseur = demiEpaisseur;
 	}
 	
 	abstract double surface();
@@ -38,21 +40,21 @@ abstract class AFormeGeometrique extends JComponent{
 	final public void setHorizontal(AlignementHorizontal horizontal) {
 		this.horizontal = horizontal;
 	}
-	
 	final public AlignementHorizontal getHorizontal() {
 		return horizontal;
 	}
-	
 	final public void setVertical(AlignementVertical vertical) {
 		this.vertical = vertical;
 	}
-	
 	final public AlignementVertical getVertical() {
 		return vertical;
 	}
 	
-	public void dessineToi(Graphics g) {
-		g.setColor(couleurTrait);
+	public void paintComponent(Graphics2D gr) {
+		gr.setColor(couleurTrait);
+        Graphics2D g = (Graphics2D) gr;
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setStroke(new BasicStroke(demiEpaisseur*2+1));
 	}
 	
 	final public Color getCouleurTrait() {

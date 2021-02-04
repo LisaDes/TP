@@ -2,6 +2,7 @@ package fr.unice.l3.formes;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Point {
 	protected int x, y;
@@ -18,7 +19,7 @@ public class Point {
 	public Point() {
 		this(0,0);
 	}
-	public void dessineToi(Graphics g) {
+	public void paintComponent(Graphics2D g) {
 		Color c = g.getColor();
 		g.setColor(couleur);
 		g.fillRect(x-2, y-2, 4, 4);
